@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Subaquatic Enhancement</title>
+    <!-- Import Outfit font for Gemini-like typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/auth.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { width: 100%; }
+        body { 
+            width: 100%; 
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            display: block; 
+            overflow: hidden; 
+            background: #000; 
+        }
+        
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            max-width: 1000px;
+            padding: 40px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            letter-spacing: -2.5px;
+            line-height: 1.05;
+            color: #FFFFFF;
+        }
+
+        /* Gemini-style animated gradient text */
+        .gemini-text {
+            background: linear-gradient(300deg, #1a73e8, #8ab4f8, #c52eae, #ea4335, #1a73e8);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineGradient 6s linear infinite;
+            display: inline-block;
+            padding-bottom: 5px; /* Prevent text clipping on some browsers */
+        }
+
+        @keyframes shineGradient {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Beautiful text reveal animations */
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            filter: blur(15px);
+            animation: elegantReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+        .delay-4 { animation-delay: 0.7s; }
+
+        @keyframes elegantReveal {
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 45px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: #1a73e8;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px 5px rgba(255,255,255,0.1);
+            background: #FFFFFF;
+        }
+
+        .hero-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title { margin-bottom: 20px; letter-spacing: -1.5px; }
+            .hero-subtitle { margin-bottom: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="auroraCanvas" class="aurora-bg"></canvas>
+
+    <div class="floating-elements">
+        <div class="float-element float-1"></div>
+        <div class="float-element float-2"></div>
+        <div class="float-element float-3"></div>
+        <div class="float-element float-4"></div>
+        <div class="float-element float-5"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+        <a href="/" class="nav-brand">Subaquatic AI</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link active">Home</a>
+            <a href="/about" class="nav-link">About</a>
+            <div class="nav-auth">
+                <a href="/login" class="nav-link login-nav-btn">Login</a>
+                <a href="/signup" class="nav-link signup-nav-btn">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="reveal-text delay-1" style="display: block;">Subaquatic Image</span>
+                <span class="reveal-text delay-2 gemini-text" style="display: block;">Enhancement System</span>
+            </h1>
+            <p class="hero-subtitle reveal-text delay-3">
+                Transform underwater visuals with cutting-edge AI. Reveal the true colors of the deep with our advanced enhancement engine.
+            </p>
+            <div class="reveal-text delay-4">
+                <a href="/signup" class="hero-cta">
+                    Get Started 
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/aurora.js"></script>
+</body>
+</html>

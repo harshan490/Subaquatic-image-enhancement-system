@@ -1,0 +1,22 @@
+.scroll-float {
+  overflow: hidden;
+  width: 100%;
+}
+
+.scroll-float-text {
+  display: inline-block;
+  font-size: clamp(1.6rem, 8vw, 10rem);
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.5;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  letter-spacing: -1px;
+  word-spacing: 0.15em;
+  width: 100%;
+  padding: 20px;
+}
+
+.char {
+  display: inline-block;
+}
